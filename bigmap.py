@@ -69,7 +69,10 @@ import config
 kHTTP_User_Agent="bigmap_bot %s (%s)" % (__version__,__contact__)
 kHTTP_Time_Out=5
 debug=True
-max_tiles=300
+
+# I add a sleep() each n tiles
+max_tiles=10000
+sleep_n_tiles=50
 
 """
 	Utilities functions : compute some maths (tile coordinates to geographical latitude,longtitude...)
@@ -383,6 +386,8 @@ class LoadImageFromURL(threading.Thread):
 						f.close()
 						self.error-=1
 					self.n+=1
+					if self.n % sleep_n_tiles == 0:
+						time.sleep(1)
 				else:
 					self.error-=1
 				self.done.append((x,y,fname))
