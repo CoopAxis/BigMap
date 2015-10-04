@@ -45,9 +45,6 @@
 		
 """
 
-__version__="0.7"
-__contact__="pdorange@mac.com"
-
 # standard modules
 import math
 import os.path
@@ -65,14 +62,15 @@ from PIL import Image		# Image manipulation library
 # local
 import config
 
+__version__="0.7"
+
 # globals
-kHTTP_User_Agent="bigmap_bot %s (%s)" % (__version__,__contact__)
+kHTTP_User_Agent="bigmap_bot %s (%s)" % (__version__,config.bigmap_contact)
 kHTTP_Time_Out=5
 debug=True
 
-# I add a sleep() each n tiles
-max_tiles=10000
-sleep_n_tiles=50
+max_tiles=config.max_tiles
+sleep_n_tiles=config.sleep_n_tiles
 
 """
 	Utilities functions : compute some maths (tile coordinates to geographical latitude,longtitude...)
@@ -625,7 +623,9 @@ def main(argv):
 	except:
 		Usage()
 		sys.exit(2)
-		
+
+	print "User agent:",kHTTP_User_Agent
+
 	centered=False
 	upleft=Coordinate(config.default_loc0[0],config.default_loc0[1])
 	downright=Coordinate(config.default_loc1[0],config.default_loc1[1])
