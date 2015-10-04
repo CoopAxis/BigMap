@@ -23,5 +23,5 @@ k_multi_thread=False
 k_chrono=True
 k_cache_folder="cache"
 k_cache_delay=24.0*3600.0		#cache age : 24h (in seconds)
-k_cache_max_size=20*1024*1024	#cache max size : 20 MB
+k_cache_max_size=500*1024*1024	#cache max size : 500 MB
 
