@@ -42,7 +42,8 @@
 	0.7 add '*' wildcards for server name (can render several server at one time)
 		add tile error handling for 404 errors
 		add mapbox, apple, map1 and openport_weather servers
-		
+	0.7a moved and changed some variables & constants
+
 """
 
 # standard modules
@@ -62,7 +63,7 @@ from PIL import Image		# Image manipulation library
 # local
 import config
 
-__version__="0.7"
+__version__="0.7a"
 
 # globals
 kHTTP_User_Agent="bigmap_bot %s (%s)" % (__version__,config.bigmap_contact)
